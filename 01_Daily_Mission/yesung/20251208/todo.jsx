@@ -1,121 +1,70 @@
-'''jsx
-// 작성 중 한계 봉착
-import {useState} from "react";
-
-const mockData = [
-{
-id:0,
-text: "",
-}
-]
-
-function App() {
-const [todos, setTodos] = useState(mockData)
-
-const [inputText,setInputText] = ("")
-
-const onSubmit = (text)=>{
-const newTodo = {
-id : 0,
-text : text,
-}
-
-    setTodos([newTodo, ...todos]);
-
-}
-
-const handleinputChange = (e) =>{
-setInputText(e.target.value);
-}
-
-const handleSubmit = (e) =>{
-e.preventDefault();
-}
-
-return (
-
-  <div>
-    <h2>Todo 리스트</h2>
-    <form onSubmit={handleSubmit}> 
-      <input onChange={handleinputChange}/>
-      <button type="submit">추가</button>
-    </form>  
-    <ul></ul>
-</div>
-)
-}
-```
-
-'''jsx
-//제미나이 AI 답변
 import React, { useState } from "react";
 
-// 고유 ID를 생성하는 간단한 함수 (uuid 대안)
 const generateId = () => Date.now();
-
-// 초기 상태는 빈 배열이 좋습니다. (mockData 제거)
 const initialTodos = [];
 
 function App() {
-// 1. 상태를 useState 함수로 정확히 초기화
-const [todos, setTodos] = useState(initialTodos);
-const [inputText, setInputText] = useState("");
+  const [todos, setTodos] = useState(initialTodos);
+  const [inputText, setInputText] = useState("");
 
-// 2. 입력 값 변경 핸들러
-const handleinputChange = (e) => {
-setInputText(e.target.value);
-};
+  const handleinputChange = (e) => {
+    setInputText(e.target.value);
+  };
 
-// 3. 폼 제출 핸들러 (이전 onSubmit 로직을 포함)
-const handleSubmit = (e) => {
-// 페이지 새로고침 방지
-e.preventDefault();
-
-    // 입력 값이 비어있으면 추가하지 않습니다.
+  const handleSubmit = (e) => {
+    e.preventDefault(); 
     if (!inputText.trim()) return;
 
     const newTodo = {
-      // 고유 ID 사용! (이전 코드의 'id: 0' 수정)
-      id: generateId(),
-      // 입력 상태(inputText)의 값을 사용
-      text: inputText.trim(),
+      id: generateId(), 
+      text: inputText.trim(), 
     };
 
-    // 불변성을 지키며 새 Todo를 todos 상태에 추가
-    setTodos([newTodo, ...todos]);
-
-    // 입력 필드 초기화
+    setTodos([newTodo, ...todos]); 
     setInputText("");
+  };
 
-};
+  // 1. ✨ Todo 삭제 핸들러 추가
+  const handleDelete = (idToDelete) => {
+    // filter() 메서드를 사용하여, 
+    // 삭제할 ID(idToDelete)와 다른 ID를 가진 요소만 남긴 새 배열을 만듭니다.
+    setTodos((prevTodos) => 
+      prevTodos.filter(todo => todo.id !== idToDelete)
+    );
+  };
 
-return (
-
-<div>
-<h2>Todo 리스트</h2>
-
-      <form onSubmit={handleSubmit}>
-        <input
-          // 4. 입력 값 상태 연결 (제어 컴포넌트)
+  return (
+    <div>
+      <h2>Todo 리스트</h2>
+      
+      <form onSubmit={handleSubmit}> 
+        <input 
           value={inputText}
           onChange={handleinputChange}
           placeholder="할 일을 입력하세요"
         />
         <button type="submit">추가</button>
       </form>  
-
+      
       <ul>
-        {/* 5. todos 배열을 순회하며 <li> 렌더링 */}
         {todos.map((todo) => (
+          // 2. ✨ 각 항목에 삭제 버튼 추가 및 이벤트 연결
           <li key={todo.id}>
             {todo.text}
+            
+            {/* 버튼 클릭 시 handleDelete 함수 호출. 
+                클릭된 항목의 고유 ID(todo.id)를 인수로 넘깁니다. */}
+            <button 
+              onClick={() => handleDelete(todo.id)}
+              style={{ marginLeft: '10px' }} // 버튼을 텍스트와 분리하기 위한 간단한 스타일
+            >
+              삭제
+            </button>
           </li>
         ))}
       </ul>
     </div>
-
-);
+  );
 }
 
 export default App;
-'''
