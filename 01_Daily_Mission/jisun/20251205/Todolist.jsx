@@ -1,3 +1,9 @@
+/*
+* TodoList
+
+* 2025-12-05 : TodoList 작성 
+* 2025-12-08 : 삭제기능 추가
+*/
 import { useState } from "react";
 
 function TodoItem({ todo, onDelete }) {
