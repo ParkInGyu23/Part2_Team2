@@ -16,8 +16,9 @@ function Count() {
   const latestCount = useRef(count);
 
   const handleClick = () => {
-    setCount(count + 1);
-    latestCount.current = count + 1;
+    const newCount = count + 1;
+    setCount(newCount);
+    latestCount.current = newCount;
   };
 
   setTimeout(() => {

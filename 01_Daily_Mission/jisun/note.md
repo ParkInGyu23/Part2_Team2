@@ -1,3 +1,13 @@
 # Jisun Daily Mission
 
-2025-12-08 : 작성한 Todo List 에서 삭제기능을 구현하시오.
+```
+📂 jisun/
+├── 📂 20251205/
+│        ├── 📒 Todolist.jsx      // Todo 리스트 작성
+│        │                        // + 삭제 기능 추가
+├── 📂 20251208/
+│        ├── 📒 Count.jsx         // 카운트
+├── 📂 20251210/
+│        ├── 📒 calculator.html   // 계산기
+│        ├── 💅 calculator.css
+```
