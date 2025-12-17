@@ -1,3 +1,8 @@
+## 설치 라이브러리
+- npm i styled-components (스타일 컴포넌트)
+
+---
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
