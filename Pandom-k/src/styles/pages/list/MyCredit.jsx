@@ -1,0 +1,41 @@
+import styled from 'styled-components';
+import { palette } from '../../Palette';
+
+export const MyCreditContainer = styled.section`
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin:0 auto;
+  border:1px solid rgba(241, 238, 249, 0.8);
+  border-radius: 8px;
+  padding:33px 78px;
+`;
+
+export const CreditInfo = styled.div`
+  display:flex;
+  flex-direction: column;
+  gap: 14px;
+`;
+
+export const CreditTitle = styled.h2`
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  font-weight: 400;   
+`;
+
+export const CreditPoint = styled.span`
+  display: flex;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.87);
+  font-size: 24px;
+  font-weight: 700;
+`;
+
+export const ChargeButton = styled.button`
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: ${palette.primary};
+  font-weight: 700;
+`
