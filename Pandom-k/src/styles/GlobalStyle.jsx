@@ -66,6 +66,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Pretendard', sans-serif;
     font-weight: 400;
     font-style: normal;
+    color: ${palette.white};
+    background-color: ${palette.black200};
   }
 
   li {
@@ -86,13 +88,16 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
-  input["number"]::-webkit-outer-spin-button {
+  input[type="number"] {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
+    }
+
+    appearance: textfield;
+    -moz-appearance: textfield;
   }
-
-
 `;
 
 export default GlobalStyle;
