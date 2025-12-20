@@ -16,5 +16,6 @@ export const palette = {
   white50: '#F7F7F8',
   white: '#fff',
 
+  yellow: '#D2C030',
   error: '#FF2626',
 };
