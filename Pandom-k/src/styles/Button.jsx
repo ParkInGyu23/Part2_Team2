@@ -14,6 +14,7 @@ const StyledButton = styled.button`
     if (props.Full) return '100%';
     else return 'auto';
   }};
+  max-width: 477px;
   height: auto;
   font-size: ${(props) => {
     if (props.Small) return '0.81rem';
@@ -24,7 +25,7 @@ const StyledButton = styled.button`
   text-align: center;
   padding: ${(props) => {
     if (props.Small) return '8px 15px';
-    else return '11px 15px';
+    else return '14px 15px';
   }};
   border-radius: ${(props) => {
     if (props.Round) return '100px';

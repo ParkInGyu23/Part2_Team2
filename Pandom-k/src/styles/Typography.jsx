@@ -3,6 +3,7 @@
 
 import styled, { css } from 'styled-components';
 import { palette } from './Palette';
+import { device } from './Theme';
 
 /* 공통 베이스 */
 const base = css`
@@ -14,12 +15,23 @@ const base = css`
     sans-serif;
   color: ${({ color }) => (color ? palette[color] : 'inherit')};
   text-align: ${({ align }) => align || 'inherit'};
+  transition:
+    font-size 0.3s ease-in-out,
+    font-weight 0.3s ease-in-out;
 `;
 
 export const T1 = styled.h1`
   ${base}
   font-size: 26px;
   font-weight: 700;
+
+  @media ${device.tablet} {
+    font-size: 20px;
+  }
+
+  @media ${device.mobile} {
+    font-weight: 400;
+  }
 `;
 
 export const T2 = styled.h2`
@@ -27,6 +39,10 @@ export const T2 = styled.h2`
   font-size: 24px;
   font-weight: 700;
   line-height: 26px;
+
+  @media ${device.tablet} {
+    font-size: 20px;
+  }
 `;
 
 export const T3 = styled.h3`
