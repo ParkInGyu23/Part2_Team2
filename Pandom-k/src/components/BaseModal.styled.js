@@ -31,3 +31,23 @@ export const ModalContent = styled.div`
   gap: 16px;
   width: 100%;
 `
+
+export const CloseButton = styled.button`
+  position: absolute;
+  top: 24px;
+  right: 16px;
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const CloseIconImg = styled.img`
+  &:hover {
+    filter: ${({ $hover }) => ($hover ? 'brightness(0) invert(1)' : 'none')};
+    transform: scale(1.1);
+  }
+`

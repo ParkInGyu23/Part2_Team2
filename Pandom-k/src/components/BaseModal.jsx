@@ -1,6 +1,7 @@
 import { createPortal } from "react-dom";
-import { ModalBox, ModalContent, Overlay } from "./BaseModal.styled.js";
+import { CloseButton, CloseIconImg, ModalBox, ModalContent, Overlay } from "./BaseModal.styled.js";
 import { useEffect } from "react";
+import CloseIcon from '../assets/icons/Close.svg'
 
 function BaseModal({ isOpen, onClose, children, }) {
   useEffect(() => {
@@ -19,6 +20,9 @@ function BaseModal({ isOpen, onClose, children, }) {
     return createPortal(
         <Overlay onClick={onClose}>
             <ModalBox onClick={(e) => e.stopPropagation()}>
+              <CloseButton onClick={onClose} aria-label="닫기">
+                  <CloseIconImg src={CloseIcon} alt="close" $hover />
+              </CloseButton>
               <ModalContent>
                 {children}
               </ModalContent>
