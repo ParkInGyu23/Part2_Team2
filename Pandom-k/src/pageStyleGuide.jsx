@@ -23,6 +23,7 @@ import {
 import Button from './styles/Button';
 import { Input, InputError, InputWithIcon, RadioButton } from './styles/Input';
 import IconCredit from './images/IconCredit';
+import Header from './pages/include/Header';
 
 function PageStyleGuide() {
   const [selectedRadio, setSelectedRadio] = useState('radio1'); // 라디오 선택 필요 useState
@@ -30,6 +31,7 @@ function PageStyleGuide() {
 
   return (
     <>
+      <Header />
       <DesignWrap>
         <div id="font">
           <h2>FONT</h2>

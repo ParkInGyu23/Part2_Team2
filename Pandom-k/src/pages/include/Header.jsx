@@ -6,11 +6,11 @@ const Header = () => {
   return (
     <HeaderWrap>
       <div>
-        <LogoLink href="#">
+        <LogoLink href="/list">
           <img src={images.Logo} alt="팬덤케이" />
         </LogoLink>
 
-        <ProfileImg href="#">프로필 이미지</ProfileImg>
+        <ProfileImg href="/mypage">프로필 이미지</ProfileImg>
       </div>
     </HeaderWrap>
   );

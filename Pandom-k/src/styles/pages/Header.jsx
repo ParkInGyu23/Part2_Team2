@@ -1,6 +1,7 @@
 // Header
 import styled from 'styled-components';
 import { palette } from '../Palette';
+import profileImg from '../../images/profile/fankdomK-img1.png';
 
 export const HeaderWrap = styled.header`
   position: sticky;
@@ -23,6 +24,13 @@ export const LogoLink = styled.a`
   grid-column: 4/5;
   display: flex;
   align-items: center;
+  height: 32px;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 `;
 
 export const ProfileImg = styled.a`
@@ -31,5 +39,6 @@ export const ProfileImg = styled.a`
   height: 32px;
   font-size: 0;
   border-radius: 50%;
-  background: ${palette.white};
+  background: url(${profileImg}) no-repeat top center ${palette.white};
+  background-size: contain;
 `;
