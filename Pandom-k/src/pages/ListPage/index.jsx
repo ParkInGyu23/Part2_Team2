@@ -3,6 +3,7 @@ import MyCredit from './MyCredit';
 import Donation from './Donation';
 import MonthlyChart from './MonthlyChart';
 import { ListContainer } from '../../styles/pages/list/List';
+import mockData from './Donation/mock.json';
 
 const ListPage = () => {
   return (
@@ -10,7 +11,7 @@ const ListPage = () => {
       <Header />
       <ListContainer>
         <MyCredit />
-        <Donation />
+        <Donation apiData={mockData} />
         <MonthlyChart />
       </ListContainer>
     </>
