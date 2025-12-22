@@ -1,7 +1,8 @@
 // 반응형 사이즈
 
 const size = {
-  mobile: '375px',
+  // mobile: '375px',
+  mobile: '430px', // 아이폰 14 Pro Max, 15 Pro Max, 16 Pro Max, Plus
   tablet: '744px',
   desktop: '1920px',
 };

@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import { palette } from '../Palette';
 import profileImg from '../../images/profile/fankdomK-img1.png';
+import BgLendingTop from '../../images/bgLendingTop.png';
 
 export const HeaderWrap = styled.header`
   position: sticky;
@@ -11,12 +12,24 @@ export const HeaderWrap = styled.header`
   align-items: center;
   justify-content: center;
   background: ${palette.black200};
+  z-index: 999;
 
   > div {
     display: grid;
     grid-template:
       32px/24px 32px minmax(min-content, 484px) 168px minmax(min-content, 484px)
       32px 24px;
+  }
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 199px;
+    height: 273px;
+    background: url(${BgLendingTop}) no-repeat top left;
+    z-index: -1;
+    content: '';
   }
 `;
 
