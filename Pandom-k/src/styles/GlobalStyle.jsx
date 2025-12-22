@@ -57,6 +57,25 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: ${palette.secondary} ${palette.white};
+  }
+
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: ${palette.white};
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: ${palette.secondary};
+    border-radius: 10px;
+    border: 3px solid ${palette.white};
+  }
+
   html, body {
     font-size: 16px;
   }
@@ -68,6 +87,10 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     color: ${palette.white};
     background-color: ${palette.black200};
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   li {
