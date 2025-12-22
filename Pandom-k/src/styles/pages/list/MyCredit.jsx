@@ -1,15 +1,24 @@
 import styled from 'styled-components';
 import { palette } from '../../Palette';
+import { device } from '../../Theme';
 
 export const MyCreditContainer = styled.section`
   display: flex;
   justify-content: space-between;
   max-width: 1200px;
   width: 100%;
-  margin:0 auto;
-  border:1px solid rgba(241, 238, 249, 0.8);
+  margin: 0 auto;
+  border: 1px solid rgba(241, 238, 249, 0.8);
   border-radius: 8px;
-  padding:33px 78px;
+  padding: 33px 78px;
+
+  @media ${device.tablet} {
+    padding: 30px 64px; 
+  }
+
+  @media ${device.mobile} {
+    padding: 15px 20px;
+  }
 `;
 
 export const CreditInfo = styled.div`
