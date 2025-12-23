@@ -58,14 +58,13 @@ export const DonationContainer = styled.section`
   .embla__button--next {
     right: 110px;
   }
-  
 `;
 
 export const DonationHeader = styled.div`
-  margin-bottom:24px;
-`
+  margin-bottom: 24px;
+`;
 
-// ProfileCard 
+// ProfileCard
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -77,7 +76,7 @@ export const ThumbnailBox = styled.div`
   width: 100%;
   aspect-ratio: 282 / 293;
   background: gray;
-  border-radius: 8px; 
+  border-radius: 8px;
   overflow: hidden;
 
   img {
@@ -98,9 +97,9 @@ export const ThumbnailBox = styled.div`
 export const SupportButton = styled(Button)`
   position: absolute;
   bottom: 20px;
-  left: 50%; 
+  left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 40px); 
+  width: calc(100% - 40px);
   padding: 10px;
   //font-size: 13px;
   color: ${palette.white};
@@ -108,7 +107,7 @@ export const SupportButton = styled(Button)`
 `;
 
 export const CardDetails = styled.div`
-  padding: 12px 0 0 0; 
+  padding: 12px 0 0 0;
   display: flex;
   flex-direction: column;
 
@@ -118,10 +117,9 @@ export const CardDetails = styled.div`
     opacity: 40%;
   }
   .mainTitle {
-    color: #F7F7F8;
+    color: #f7f7f8;
     font-size: 18px;
     margin-top: 8px;
-    
   }
 `;
 
@@ -129,28 +127,27 @@ export const CardDetails = styled.div`
 export const ProgressContainer = styled.div`
   margin-top: 10px;
 
-  .bar-bg { 
+  .bar-bg {
     position: relative;
-    width: 100%; 
-    height: 1px; 
+    width: 100%;
+    height: 1px;
     background: ${palette.white};
     border-radius: 1px;
     margin-top: 7px;
   }
-  .bar-fill { 
-    height: 100%; 
-    background: ${palette.primary}
+  .bar-fill {
+    height: 100%;
+    background: ${palette.primary};
   }
-  .status { 
-    display: flex; 
-    justify-content: space-between; 
-    margin-top: 5px; 
-    font-size: 12px; 
+  .status {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    font-size: 12px;
   }
-  .amount { 
+  .amount {
     display: inline-flex;
     align-items: center;
-    color: ${palette.primary} 
+    color: ${palette.primary};
   }
 `;
-

@@ -14,6 +14,15 @@ const MyPage = () => {
     { id: 1, img: profileImg1, name: '민지', group: '아리즈1' },
     { id: 2, img: profileImg2, name: '지민', group: '아리즈2' },
     { id: 3, img: profileImg3, name: '진우', group: '아리즈3' },
+    { id: 4, img: profileImg1, name: '민지', group: '아리즈4' },
+    { id: 5, img: profileImg2, name: '지민', group: '아리즈5' },
+    { id: 6, img: profileImg3, name: '진우', group: '아리즈6' },
+    { id: 7, img: profileImg1, name: '민지', group: '아리즈7' },
+    { id: 8, img: profileImg2, name: '지민', group: '아리즈8' },
+    { id: 9, img: profileImg3, name: '진우', group: '아리즈9' },
+    { id: 10, img: profileImg1, name: '민지', group: '아리즈10' },
+    { id: 11, img: profileImg2, name: '지민', group: '아리즈11' },
+    { id: 12, img: profileImg3, name: '진우', group: '아리즈12' },
   ]);
 
   const [selectedIds, setSelectedIds] = useState([]); // 현재 체크된 ID들
@@ -35,6 +44,7 @@ const MyPage = () => {
     setFavorites((prev) => [...prev, ...toMove]); // 위로 보냄
     setIdolList(toStay); // 아래서 삭제
     setSelectedIds([]); // 체크표시 초기화
+    alert('관심목록에 추가되었습니다!');
   };
 
   // [X] 클릭: 상단 -> 하단으로 복원
@@ -43,6 +53,7 @@ const MyPage = () => {
 
     setFavorites((prev) => prev.filter((idol) => idol.id !== id)); // FavoriteList에서 삭제
     setIdolList((prev) => [...prev, targetIdol]); // IdolList로 복원
+    alert('관심목록에서 삭제되었습니다!');
   };
 
   return (
