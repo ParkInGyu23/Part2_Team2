@@ -8,7 +8,7 @@ const ProfileCard = ({ artist }) => {
     <CardContainer>
       <ThumbnailBox>
         <div className="overlay-gradient"></div>
-        {/* <img src="" alt="" /> */}
+        <img src={artist.idol.profilePicture} alt={artist.idol.name} />
         <SupportButton $Full>후원하기</SupportButton>
       </ThumbnailBox>
 
