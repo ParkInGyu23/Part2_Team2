@@ -82,7 +82,6 @@ export const DonationContainer = styled.section`
   .embla__button--next {
     right: -80px;
   }
-  
 `;
 export const CarouselContainer = styled.div`
   position: relative;  
@@ -93,10 +92,8 @@ export const DonationHeader = styled.div`
   @media ${device.mobile} {
     margin-bottom: 16px;
   }
-
 `
-
-// ProfileCard 
+// ProfileCard
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -108,7 +105,7 @@ export const ThumbnailBox = styled.div`
   width: 100%;
   aspect-ratio: 282 / 293;
   background: gray;
-  border-radius: 8px; 
+  border-radius: 8px;
   overflow: hidden;
 
   img {
@@ -129,10 +126,11 @@ export const ThumbnailBox = styled.div`
 export const SupportButton = styled(Button)`
   position: absolute;
   bottom: 20px;
-  left: 50%; 
+  left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 40px); 
-  padding: 10px 0;
+  width: calc(100% - 40px);
+  padding: 10px;
+  //font-size: 13px;
   color: ${palette.white};
   z-index: 2;
   @media ${device.mobile} {
@@ -145,7 +143,7 @@ export const SupportButton = styled(Button)`
 `;
 
 export const CardDetails = styled.div`
-  padding: 12px 0 0 0; 
+  padding: 12px 0 0 0;
   display: flex;
   flex-direction: column;
   @media ${device.mobile} {
@@ -160,7 +158,7 @@ export const CardDetails = styled.div`
     }
   }
   .mainTitle {
-    color: #F7F7F8;
+    color: #f7f7f8;
     font-size: 18px;
     margin-top: 8px;
     @media ${device.mobile} {
@@ -172,6 +170,7 @@ export const CardDetails = styled.div`
 
 //진행바
 export const ProgressContainer = styled.div`
+
   margin-top: 24px;
   @media ${device.mobile} {
     margin-top: 20px;
@@ -181,22 +180,23 @@ export const ProgressContainer = styled.div`
     width: 100%; 
     height: 1px; 
     margin-top: 7px;
+
     background: ${palette.white};
     border-radius: 1px;
   }
-  .bar-fill { 
-    height: 100%; 
-    background: ${palette.primary}
+  .bar-fill {
+    height: 100%;
+    background: ${palette.primary};
   }
+
   .status { 
     display: flex; 
     justify-content: space-between; 
     font-size: 12px; 
   }
-  .amount { 
+  .amount {
     display: inline-flex;
     align-items: center;
-    color: ${palette.primary} 
+    color: ${palette.primary};
   }
 `;
-
