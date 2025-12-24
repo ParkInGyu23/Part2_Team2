@@ -1,9 +1,9 @@
 import { MonthlyChartContainer, ChartHeader, VoteButton, VoteIcon, TabGroup, ChartTabButton, TabContent } from '../../../styles/pages/list/MonthlyChart'
 import { T2 } from '../../../styles/Typography';
-import Button from '../../../styles/Button';
 import IconBtnChart from '../../../images/IconBtnChart.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import IdolList from './components/IdolList';
+import { getCharts } from "../../../apis/chart";
 
 const TABS_DATA = [
   {
@@ -21,7 +21,21 @@ const TABS_DATA = [
 const MonthlyChart = () => {
 
   const [activeTab, setActiveTab] = useState(TABS_DATA[0].id);
+  const [chartData, setChartData] = useState([]);
   const currentTab = TABS_DATA.find(tab => tab.id === activeTab); 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getCharts({ gender: currentTab.type });
+        setChartData(response.idols); 
+      } catch (error) {
+        console.error("데이터 로딩 실패", error);
+      }
+    };
+
+    fetchData();
+  }, [currentTab.type]);
 
   return (
     <>
@@ -45,7 +59,7 @@ const MonthlyChart = () => {
           ))}
         </TabGroup>
         <TabContent>
-          <IdolList type={currentTab?.type} />
+          <IdolList idols={chartData} />
         </TabContent>  
       </MonthlyChartContainer>
 

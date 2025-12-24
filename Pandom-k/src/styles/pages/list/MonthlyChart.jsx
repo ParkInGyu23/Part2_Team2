@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { palette } from '../../Palette';
 import Button from '../../Button';
+import { device } from '../../Theme';
 
 export const MonthlyChartContainer = styled.section`
   display: flex;
@@ -11,8 +12,10 @@ export const MonthlyChartContainer = styled.section`
   margin: 0 auto;
   box-sizing: border-box;
   color: ${palette.white};
-  padding: 50px 0
-  
+  padding-top: 50px;
+  @media ${device.mobile} {
+    padding-top: 40px;
+  } 
 `;
 
 export const ChartHeader = styled.div`
@@ -20,14 +23,19 @@ export const ChartHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
-
+  @media ${device.mobile} {
+    margin-bottom: 16px;
+  } 
 `;
 
 export const VoteButton = styled(Button)`
   display: inline-flex;  
   align-items: center;
   padding:4px 14px;
-  gap: 4px;             
+  gap: 4px; 
+  @media ${device.mobile} {
+    font-size: 13px;
+  }            
 `;
 
 export const VoteIcon = styled.img`
@@ -107,12 +115,13 @@ export const IdolInfo = styled.div`
   gap: 12px;
 `;
 //임시 프로필 이미지 
-export const ImgProfile = styled.span`
+export const ImgProfile = styled.img`
   display:inline-flex;  
   width:70px;
   height:70px;
   background-color: gray;
   border-radius: 50%;
+  object-fit: cover;
 `
 
 export const RankText = styled.span`
@@ -120,12 +129,18 @@ export const RankText = styled.span`
   font-weight: 400;
   color: ${palette.primary};
   width:16px;
+  @media ${device.mobile} {
+    font-size: 14px;
+  }
 `;
 
 export const NameText = styled.span`
   font-size: 16px;
   font-weight: 500;
   color: ${palette.white};
+  @media ${device.mobile} {
+    font-size: 14px;
+  }
   
   strong {
     font-weight: 500;
@@ -138,6 +153,9 @@ export const VoteText = styled.span`
   font-size: 16px;
   color: rgba(255, 255, 255, 0.6);
   white-space: nowrap; 
+  @media ${device.mobile} {
+    font-size: 14px;
+  }
 `;
 
 export const MoreButton = styled.button`
@@ -147,9 +165,16 @@ export const MoreButton = styled.button`
   padding: 10px 20px;
   border: 1px solid rgba(241, 238, 249, 0.8);
   border-radius: 3px;
-  margin: 51px auto 0;
+  margin: 51px auto 51px;
   font-size:14px;
   font-weight: 700;
+  @media ${device.mobile} {
+    margin: 27px 0;
+  }
+  @media ${device.mobile} {
+    margin: 33px 0;
+  }
+
 `
 
 

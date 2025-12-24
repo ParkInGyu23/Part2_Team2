@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { palette } from '../../Palette';
 import Button from '../../Button';
+import { device } from '../../Theme';
 
 export const DonationContainer = styled.section`
   display: flex;
@@ -11,29 +12,52 @@ export const DonationContainer = styled.section`
   margin: 0 auto;
   box-sizing: border-box;
   color: ${palette.white};
-  padding: 50px 0;
+  padding-top: 50px;
+
+  @media ${device.mobile} {
+    padding-top: 40px;
+  }
 
   .embla {
     overflow: hidden;
+    @media (max-width: 1024px) {
+     margin-left:-24px;
+     margin-right:-24px; 
+    }
+
   }
 
   .embla__container {
     display: flex;
-    margin-left: -24px;
+    
+    @media (max-width: 1024px) {
+     padding-left: 24px;
+     padding-right: 0; 
+    }
+
+    
   }
 
   .embla__slide {
-    flex: 0 0 25%;
-    padding-left: 24px;
+    flex: 0 0 calc(25% - 24px);
+    margin-right: 24px;
     box-sizing: border-box;
 
     @media (max-width: 1024px) {
-      flex: 0 0 40%;
+      flex: 0 0 30%;
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 24px;
+      }
     }
 
-    @media (max-width: 768px) {
+    @media ${device.tablet} {
       flex: 0 0 45%;
-      padding-left: 10px;
+      margin-right: 16px 
+    }
+    
+    @media ${device.mobile} {
+      margin-right: 8px;
     }
   }
 
@@ -52,18 +76,23 @@ export const DonationContainer = styled.section`
   }
 
   .embla__button--prev {
-    left: 110px;
+    left: -80px;
   }
 
   .embla__button--next {
-    right: 110px;
+    right: -80px;
   }
 `;
+export const CarouselContainer = styled.div`
+  position: relative;  
+`
 
 export const DonationHeader = styled.div`
-  margin-bottom: 24px;
-`;
-
+  margin-bottom:24px;
+  @media ${device.mobile} {
+    margin-bottom: 16px;
+  }
+`
 // ProfileCard
 export const CardContainer = styled.div`
   display: flex;
@@ -104,46 +133,66 @@ export const SupportButton = styled(Button)`
   //font-size: 13px;
   color: ${palette.white};
   z-index: 2;
+  @media ${device.mobile} {
+    bottom: 8px;
+    width: calc(100% - 16px);
+    font-size: 13px;
+    padding: 7px 0;
+  }
+
 `;
 
 export const CardDetails = styled.div`
   padding: 12px 0 0 0;
   display: flex;
   flex-direction: column;
-
+  @media ${device.mobile} {
+    padding: 10px 0 0 0;
+  }
   .subTitle {
     color: ${palette.white};
     font-size: 16px;
     opacity: 40%;
+    @media ${device.mobile} {
+      font-size: 12px;
+    }
   }
   .mainTitle {
     color: #f7f7f8;
     font-size: 18px;
     margin-top: 8px;
+    @media ${device.mobile} {
+      font-size: 14px;
+      margin-top: 6px;
+    }
   }
 `;
 
 //진행바
 export const ProgressContainer = styled.div`
-  margin-top: 10px;
 
-  .bar-bg {
+  margin-top: 24px;
+  @media ${device.mobile} {
+    margin-top: 20px;
+  }
+  .bar-bg { 
     position: relative;
-    width: 100%;
-    height: 1px;
+    width: 100%; 
+    height: 1px; 
+    margin-top: 7px;
+
     background: ${palette.white};
     border-radius: 1px;
-    margin-top: 7px;
   }
   .bar-fill {
     height: 100%;
     background: ${palette.primary};
   }
-  .status {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5px;
-    font-size: 12px;
+
+  .status { 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 12px; 
   }
   .amount {
     display: inline-flex;
