@@ -2,7 +2,7 @@
 
 const size = {
   // mobile: '375px',
-  mobile: '430px', // 아이폰 14 Pro Max, 15 Pro Max, 16 Pro Max, Plus
+  mobile: '650px', // 아이폰 14 Pro Max, 15 Pro Max, 16 Pro Max, Plus
   tablet: '1023px',
   desktop: '1024px',
 };

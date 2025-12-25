@@ -12,9 +12,9 @@ const IdolList = ({ idolList, selectedIds, onSelected, onFavorite }) => {
   const [canScrollNext, setCanScrollNext] = useState();
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: 'start',
-    slidesToScroll: 8,
+    loop: false,
+    align: 'center',
+    slidesToScroll: 'auto',
   });
   const updateButtons = () => {
     setCanScrollPrev(emblaApi.canScrollPrev());
@@ -53,7 +53,7 @@ const IdolList = ({ idolList, selectedIds, onSelected, onFavorite }) => {
                 <div className="embla__slide" key={idol.id}>
                   <IdolCard
                     key={idol.id}
-                    src={idol.img}
+                    src={idol.profilePicture}
                     isChecked={selectedIds.includes(idol.id)}
                     onSelected={() => onSelected(idol.id)}
                     idol={idol}
