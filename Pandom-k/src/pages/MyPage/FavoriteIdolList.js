@@ -1,13 +1,21 @@
 import styled from 'styled-components';
+import { device } from '../../styles/Theme.jsx';
 
 const FavoriteListWrap = styled.div`
-  padding: 0 50px;
+  padding: 0 70px;
   margin: 0 auto;
-  width: 1050px;
+  width: 100%;
+  max-width: 1350px;
   height: auto;
-  gap: 30px;
+  min-height: 200px;
+  gap: 10px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  @media ${device.mobile} {
+    padding: 0 0px;
+    gap: 0px;
+  }
 
   .title {
     height: 50px;
@@ -17,9 +25,6 @@ const FavoriteListWrap = styled.div`
 
   .carousel-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 80px;
     height: 100%;
   }
 
@@ -28,6 +33,9 @@ const FavoriteListWrap = styled.div`
     height: 200px;
     gap: 40px;
     overflow: hidden;
+    @media ${device.mobile} {
+      height: 150px;
+    }
   }
 
   .embla__container {
@@ -35,6 +43,29 @@ const FavoriteListWrap = styled.div`
     flex-direction: row;
     gap: 20px;
     height: 100%;
+  }
+
+  .embla__slide {
+    div {
+      width: 100px !important;
+      height: 100px !important;
+    }
+    img.profileImg {
+      width: 87px !important;
+      height: 87px !important;
+      object-fit: cover;
+    }
+    @media ${device.mobile} {
+      div {
+        width: 80px !important;
+        height: 80px !important;
+      }
+      img.profileImg {
+        width: 67px !important;
+        height: 67px !important;
+        object-fit: cover;
+      }
+    }
   }
 `;
 

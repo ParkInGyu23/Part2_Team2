@@ -1,32 +1,30 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import IdolList from './Idollist.jsx';
 import FavoriteIdolList from './FavoriteIdolList.jsx';
 import Header from '../include/Header.jsx';
-
-//profile 이미지 예시 1~3
-import profileImg1 from '../../images/profile/fankdomK-img1.png';
-import profileImg2 from '../../images/profile/fankdomK-img2.png';
-import profileImg3 from '../../images/profile/fankdomK-img3.png';
+import { getList } from '../../apis/MyPageList.js';
 
 const MyPage = () => {
-  // 리스트에 있을 아이돌들
-  const [idolList, setIdolList] = useState([
-    { id: 1, img: profileImg1, name: '민지', group: '아리즈1' },
-    { id: 2, img: profileImg2, name: '지민', group: '아리즈2' },
-    { id: 3, img: profileImg3, name: '진우', group: '아리즈3' },
-    { id: 4, img: profileImg1, name: '민지', group: '아리즈4' },
-    { id: 5, img: profileImg2, name: '지민', group: '아리즈5' },
-    { id: 6, img: profileImg3, name: '진우', group: '아리즈6' },
-    { id: 7, img: profileImg1, name: '민지', group: '아리즈7' },
-    { id: 8, img: profileImg2, name: '지민', group: '아리즈8' },
-    { id: 9, img: profileImg3, name: '진우', group: '아리즈9' },
-    { id: 10, img: profileImg1, name: '민지', group: '아리즈10' },
-    { id: 11, img: profileImg2, name: '지민', group: '아리즈11' },
-    { id: 12, img: profileImg3, name: '진우', group: '아리즈12' },
-  ]);
-
   const [selectedIds, setSelectedIds] = useState([]); // 현재 체크된 ID들
+  const [favoriteIdolDetails, setFavoriteIdolDetails] = useState([]); //관심있는 아이돌 상세정보(id 비교)
   const [favorites, setFavorites] = useState([]); // 상단 관심 목록
+  const [idolList, setIdolList] = useState([]); // 리스트에 있을 아이돌들
+
+  const fetchFavoriteIdols = async () => {
+    try {
+      const result = await getList({ cursor: null, pageSize: 1000 });
+      const favoriteDetails = result.list.filter((idol) => idolList.includes(idol.id));
+      setFavoriteIdolDetails(favoriteDetails);
+      setIdolList(result.list);
+    } catch (err) {
+      console.error('Error loading favorite idols:', err);
+    }
+  };
+
+  //favoriteIdols 변경시 관심아이돌 정보 가져오는 함수 실행
+  useEffect(() => {
+    fetchFavoriteIdols();
+  }, []);
 
   ////// 아이돌 클릭 시 체크/해제
   const toggleSelect = (id) => {

@@ -45,7 +45,7 @@ const FavoriteIdolList = ({ favorites, onRemove, idol }) => {
                 <div className="embla__slide" key={idol.id}>
                   <IdolCard
                     key={idol.id}
-                    src={idol.img}
+                    src={idol.profilePicture}
                     showCloseButton={true} // X버튼 활성화
                     onRemove={() => onRemove(idol.id)}
                     idol={idol}

@@ -6,15 +6,16 @@ const CardWrap = styled.div`
   position: relative;
 
   .removeBtn {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     right: 0px;
-    top: 10px;
+    top: 4px;
     cursor: pointer;
     position: absolute;
   }
   .idolName {
     margin-top: 10px;
+    text-align: center;
   }
 
   .idolGroup {

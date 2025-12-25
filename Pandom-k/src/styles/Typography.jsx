@@ -105,7 +105,7 @@ export const T11 = styled.div`
   line-height: 26px;
 `;
 
-export const T12 = styled.div`
+export const T12 = styled.p`
   ${base}
   font-size: 14px;
   font-weight: 700;
