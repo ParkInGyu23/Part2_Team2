@@ -9,6 +9,7 @@ import MyPage from './pages/MyPage/MyPage.jsx';
 import { useState } from 'react';
 import DonationModal from './components/donationModal';
 import CreditChargeModal from './components/CreditChargeModal';
+import { CreditProvider } from './contexts/CreditContext';
 
 function App() {
   const [isDonationOpen, setIsDonationOpen] = useState(false); // 후원 모달이 열려있는지
@@ -59,17 +60,16 @@ function App() {
         myCredit={myCredit}
         setMyCredit={setMyCredit}
       ></DonationModal>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/design" element={<PageStyleGuide />} />
-          <Route path="/" element={<Lending />} />
-          <Route path="/list" element={<ListPage />} />
-          <Route path="/MyPage" element={<MyPage />} />
-
-          {/* 404 페이지 처리 */}
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </BrowserRouter>
+      <CreditProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/design" element={<PageStyleGuide />} />
+            <Route path="/" element={<Lending />} />
+            <Route path="/list" element={<ListPage />} />
+            <Route path="/MyPage" element={<MyPage />} />
+          </Routes>
+        </BrowserRouter>
+      </CreditProvider>
     </>
   );
 }
