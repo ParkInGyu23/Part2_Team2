@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import {
   inViewMotionProps,
-  fadeIn,
   fadeInDown,
   fadeInLeft,
   fadeInRight,
