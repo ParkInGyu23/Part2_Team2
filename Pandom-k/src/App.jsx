@@ -8,6 +8,7 @@ import MyPage from './pages/MyPage/MyPage.jsx';
 import { useState } from "react";
 import DonationModal from "./components/donationModal";
 import CreditChargeModal from "./components/CreditChargeModal";
+import { CreditProvider } from './contexts/CreditContext';
 
 
 
@@ -58,15 +59,16 @@ function App() {
         setMyCredit={setMyCredit}
       >
       </DonationModal>
-
-      <BrowserRouter>
-        <Routes>
-          <Route path="/design" element={<PageStyleGuide />} />
-          <Route path="/" element={<Lending />} />
-          <Route path="/list" element={<ListPage />} />
-          <Route path="/MyPage" element={<MyPage />} />
-        </Routes>
-      </BrowserRouter>
+      <CreditProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/design" element={<PageStyleGuide />} />
+            <Route path="/" element={<Lending />} />
+            <Route path="/list" element={<ListPage />} />
+            <Route path="/MyPage" element={<MyPage />} />
+          </Routes>
+        </BrowserRouter>
+      </CreditProvider>
     </>
   );
 }

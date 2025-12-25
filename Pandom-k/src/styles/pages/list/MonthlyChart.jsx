@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { palette } from '../../Palette';
 import Button from '../../Button';
 import { device } from '../../Theme';
+import ImgBorder from '../../../components/IdolImg';
 
 export const MonthlyChartContainer = styled.section`
   display: flex;
@@ -12,9 +13,9 @@ export const MonthlyChartContainer = styled.section`
   margin: 0 auto;
   box-sizing: border-box;
   color: ${palette.white};
-  padding-top: 50px;
+  padding: 50px 0;
   @media ${device.mobile} {
-    padding-top: 40px;
+    padding: 40px 0;
   } 
 `;
 
@@ -113,9 +114,20 @@ export const IdolInfo = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
+
 `;
+
+export const  ImgProfile = styled(ImgBorder)`
+  width: 70px;
+  height: 70px;
+
+  .profileImg {
+    width: 60px;
+    height: 60px;
+  }
+`
 //임시 프로필 이미지 
-export const ImgProfile = styled.img`
+export const ImgProfiles = styled.img`
   display:inline-flex;  
   width:70px;
   height:70px;
@@ -169,10 +181,10 @@ export const MoreButton = styled.button`
   font-size:14px;
   font-weight: 700;
   @media ${device.mobile} {
-    margin: 27px 0;
+    margin: 27px auto;
   }
   @media ${device.mobile} {
-    margin: 33px 0;
+    margin: 33px auto;
   }
 
 `

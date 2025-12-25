@@ -1,8 +1,9 @@
 import { MyCreditContainer, CreditInfo, CreditTitle, CreditPoint, ChargeButton, ReponsiveIconCredit } from '../../../styles/pages/list/MyCredit';
 import { palette } from '../../../styles/Palette';
-import IconCredit from '../../../images/IconCredit';
+import { useCreditValue } from '../../../contexts/CreditContext';
 
 const MyCredit = () => {
+  const credit = useCreditValue();
   return (
     <>
       <MyCreditContainer>
@@ -10,7 +11,7 @@ const MyCredit = () => {
           <CreditTitle>내 크레딧</CreditTitle>
           <CreditPoint>
             <ReponsiveIconCredit width={16} color={palette.primary} />
-            10,000
+              {credit.toLocaleString()}
           </CreditPoint>      
         </CreditInfo>
         <ChargeButton>충전하기</ChargeButton>
