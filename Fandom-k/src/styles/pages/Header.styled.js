@@ -1,7 +1,7 @@
 // Header
 import styled from 'styled-components';
 import { palette } from '../Palette.styled';
-import profileImg from '../../images/profile/fankdomK-img1.png';
+import profileImg from '../../assets/images/ProfileImg.png';
 import BgLendingTop from '../../images/bgLendingTop.png';
 
 export const HeaderWrap = styled.header`

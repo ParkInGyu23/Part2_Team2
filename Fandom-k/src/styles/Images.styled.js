@@ -1,4 +1,4 @@
-import Logo from '../images/logo.svg';
+import Logo from '../images/Icons/Logo.svg';
 
 import IcoDelete from '../images/IconDelete.svg'; // 삭제 아이콘
 import IcoDeleteGray from '../images/iconDeleteGray.svg'; // 삭제 아이콘 회색

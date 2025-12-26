@@ -9,7 +9,7 @@ import {
   SelectButton,
   SuccessIcon,
 } from '../../../../styles/Modal/CreditChargeModal.styled.js';
-import creditImg from '../assets/icons/credit.svg';
+import creditImg from '../assets/icons/Credit.svg';
 import { useCreditActions, useCreditValue } from '../../../../contexts/CreditContext.jsx';
 
 function CreditChargeModal({ isOpen, onClose }) {

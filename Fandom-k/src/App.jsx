@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle.styled.js';
 import NotFoundPage from './pages/NotFoundPage.jsx';
-import Lending from './pages/Lending.jsx';
-import PageStyleGuide from './pageStyleGuide.js';
-import ListPage from './pages/ListPage.js';
+import Lending from './pages/Landing';
+import ListPage from './pages/ListPage';
 import MyPage from './pages/MyPage/MyPage.jsx';
 import { CreditProvider } from './contexts/CreditContext.jsx';
 
