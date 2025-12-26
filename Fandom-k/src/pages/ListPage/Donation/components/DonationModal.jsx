@@ -14,7 +14,7 @@ import {
   SuccessIcon,
 } from '../../../../styles/Modal/DonationModal.styled';
 import BaseModal from '../../../../components/BaseModal';
-import creditImg from '../assets/icons/credit.svg';
+import creditImg from '../assets/icons/Credit.svg';
 import { useCreditActions, useCreditValue } from '../../../../contexts/CreditContext';
 
 function DonationModal({ isOpen, onClose, donationData }) {

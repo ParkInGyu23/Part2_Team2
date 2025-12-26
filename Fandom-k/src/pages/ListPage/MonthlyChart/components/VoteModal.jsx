@@ -19,8 +19,8 @@ import {
   VoteAmount,
   VoteButton,
 } from '../../../../styles/Modal/VoteModal.styled';
-import CheckImg from '../images/iconCheck.svg';
-import CreditImg from '../assets/icons/credit.svg';
+import CheckImg from '../images/IconCheck.svg';
+import CreditImg from '../assets/icons/Credit.svg';
 import { useCreditActions, useCreditValue } from '../../../../contexts/CreditContext';
 
 function VoteModal({ isOpen, onClose, idols }) {
