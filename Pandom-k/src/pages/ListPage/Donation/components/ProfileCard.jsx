@@ -1,15 +1,25 @@
+import { useState } from 'react';
+import DonationModal from '../../../../components/donationModal';
 import { CardContainer, ThumbnailBox, SupportButton, CardDetails } from '../../../../styles/pages/list/Donation';
 import ProgressBar from './ProgressBar'; 
 
 const ProfileCard = ({ artist }) => {
   if (!artist || !artist.idol) return null;
+  const [isDonationOpen, setIsDonationOpen] = useState(false);
+  const [selectedIdol, setSelectedIdol] = useState(null);
 
   return (
     <CardContainer>
       <ThumbnailBox>
         <div className="overlay-gradient"></div>
         <img src={artist.idol.profilePicture} alt={artist.idol.name} />
-        <SupportButton $Full>후원하기</SupportButton>
+        <SupportButton onClick={() => setIsDonationOpen(true)} $Full>후원하기</SupportButton>
+        <DonationModal
+        isOpen={isDonationOpen}
+        onClose={() => setIsDonationOpen(false)}
+        donationData={artist}
+        >
+        </DonationModal>
       </ThumbnailBox>
 
       <CardDetails>

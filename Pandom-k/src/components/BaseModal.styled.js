@@ -15,7 +15,7 @@ export const Overlay = styled.div`
 
 export const ModalBox = styled.div`
   background: #181D26;
-  width: 350px;
+  width: ${({ $width }) => $width || '350px'};
   padding: 24px;
   border-radius: 12px;
   display: flex;

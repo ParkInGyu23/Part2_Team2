@@ -13,6 +13,7 @@ import { T2 } from '../../../styles/Typography';
 import IconBtnChart from '../../../images/IconBtnChart.png';
 import IdolList from './components/IdolList';
 import { useCharts } from '../../../hooks/useCharts';
+import VoteModal from '../../../components/VoteModal';
 
 const TABS_DATA = [
   { id: 'femaleIdol', label: '이달의 여자 아이돌', type: 'female' },
@@ -22,18 +23,26 @@ const TABS_DATA = [
 const MonthlyChart = () => {
   const [activeTabId, setActiveTabId] = useState(TABS_DATA[0].id);
   const [isLoading, setIsLoading] = useState(true);
-  const currentTabType = TABS_DATA.find((tab) => tab.id === activeTabId)?.type || 'female';
-  const { charts, loadMore, hasMore, loading } = useCharts(currentTabType, setIsLoading);
+  const currentTabType = TABS_DATA.find(tab => tab.id === activeTabId)?.type || 'female';
+  const { charts, loadMore, hasMore, loading } = useCharts(currentTabType);
+  const [isVoteIdolOpen, setIsVoteIdolOpen] = useState(false)
 
   return (
     <MonthlyChartContainer>
       <ChartHeader>
         <T2>이달의 차트</T2>
-        <VoteButton $Small>
+        <VoteButton onClick={() => setIsVoteIdolOpen(true)}$Small>
           <VoteIcon src={IconBtnChart} />
           차트 투표하기
         </VoteButton>
       </ChartHeader>
+
+      <VoteModal
+        isOpen={isVoteIdolOpen}
+        onClose={() => setIsVoteIdolOpen(false)}
+        idols={charts}
+      >
+      </VoteModal>
 
       <TabGroup>
         {TABS_DATA.map((tab) => (

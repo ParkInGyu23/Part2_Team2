@@ -2,8 +2,11 @@ import { useEffect, useState } from 'react';
 import BaseModal from './BaseModal';
 import { ButtonContent, ChargeButton, ChargeInput, Credit, RadioCircle, SelectButton, SuccessIcon } from './CreditChargeModal.styled.js';
 import creditImg from '../assets/icons/credit.svg'
+import { useCreditActions, useCreditValue } from '../contexts/CreditContext.jsx';
 
-function CreditChargeModal({ isOpen, onClose, myCredit, setMyCredit }) {
+function CreditChargeModal({ isOpen, onClose }) {
+  const credit = useCreditValue();
+  const updateCredit = useCreditActions();
   const [inputAmount, setInputAmount] = useState('');
   const [selectedAmount, setSelectedAmount] = useState(null);
   const finalChargeAmount = selectedAmount ?? Number(inputAmount);
@@ -12,7 +15,7 @@ function CreditChargeModal({ isOpen, onClose, myCredit, setMyCredit }) {
 
   const handleCharge = () => {
     const amountToCharge = selectedAmount ?? Number(inputAmount);
-    setMyCredit((prev) => prev + amountToCharge);
+    updateCredit( credit + amountToCharge);
 
     setModalStep('success');
   };
@@ -27,7 +30,7 @@ function CreditChargeModal({ isOpen, onClose, myCredit, setMyCredit }) {
   useEffect(() => {
   if (!isOpen) {
     setInputAmount("");
-    setSelectedAmount("");
+    setSelectedAmount(null)
     setModalStep('charge');
   }
 }, [isOpen]);

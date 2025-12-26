@@ -14,7 +14,12 @@ export const IdolImage = styled.img`
   border-radius: 8px;
   object-fit: cover;
 `
-
+export const IdolGroup = styled.div`
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 8px;
+`
 export const IdolTitle = styled.div`
   width: 158px;
   text-align: left;

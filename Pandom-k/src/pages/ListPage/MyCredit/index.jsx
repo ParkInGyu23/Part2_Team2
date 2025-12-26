@@ -1,9 +1,12 @@
 import { MyCreditContainer, CreditInfo, CreditTitle, CreditPoint, ChargeButton, ReponsiveIconCredit } from '../../../styles/pages/list/MyCredit';
 import { palette } from '../../../styles/Palette';
 import { useCreditValue } from '../../../contexts/CreditContext';
+import { useState } from 'react';
+import CreditChargeModal from '../../../components/CreditChargeModal';
 
 const MyCredit = () => {
   const credit = useCreditValue();
+  const [isChargeOpen, setIsChargeOpen] = useState(false);
   return (
     <>
       <MyCreditContainer>
@@ -14,7 +17,12 @@ const MyCredit = () => {
               {credit.toLocaleString()}
           </CreditPoint>      
         </CreditInfo>
-        <ChargeButton>충전하기</ChargeButton>
+        <ChargeButton onClick={() => setIsChargeOpen(true)}>충전하기</ChargeButton>
+        <CreditChargeModal
+          isOpen={isChargeOpen}
+          onClose={() => setIsChargeOpen(false)}
+        >
+        </CreditChargeModal>
       </MyCreditContainer>
     </>
   )
