@@ -22,3 +22,7 @@ export const setStorage = (key, value) => {
 export const removeStorage = (key) => {
   localStorage.removeItem(key);
 };
+
+export const clearStorage = () => {
+  localStorage.clear();
+};

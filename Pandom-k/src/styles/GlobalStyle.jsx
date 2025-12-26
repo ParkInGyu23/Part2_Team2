@@ -108,6 +108,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
+    font-family: 'Pretendard', sans-serif;
     cursor: pointer;
   }
 
