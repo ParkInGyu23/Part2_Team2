@@ -4,7 +4,7 @@ import GlobalStyle from './styles/GlobalStyle.styled.js';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import Lending from './pages/Landing';
 import ListPage from './pages/ListPage';
-import MyPage from './pages/MyPage/MyPage.jsx';
+import MyPage from './pages/MyPage';
 import { CreditProvider } from './contexts/CreditContext.jsx';
 
 function App() {
