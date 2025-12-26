@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import IdolList from './Idollist.jsx';
-import FavoriteIdolList from './FavoriteIdolList.jsx';
+import IdolList from './components/IdolList.jsx';
+import FavoriteIdolList from './components/FavoriteIdolList.jsx';
 import Header from '../include/Header.jsx';
 import { getList } from '../../API/MyPageList.js';
 

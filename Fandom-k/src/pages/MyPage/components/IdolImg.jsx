@@ -1,5 +1,5 @@
-import checkIcon from '../images/IconCheck.svg';
-import ImgBorder from './IdolImg.jsx';
+import checkIcon from '../../../assets/icons/IconCheck.svg';
+import ImgBorder from '../../../styles/IdolImg.styled';
 
 const IdolImg = ({ src, isChecked, onSelected }) => {
   return (

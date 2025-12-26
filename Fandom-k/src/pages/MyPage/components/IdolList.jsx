@@ -1,10 +1,10 @@
 import IdolCard from './IdolCard.jsx';
-import IdolListWrap from './IdolList.styled.js';
-import Button from '../../styles/Button.styled.js';
-import { T2 } from '../../styles/TypoGraphy.styled.js';
+import IdolListWrap from '../../../styles/pages/MyPage/IdolList.styled.js';
+import Button from '../../../styles/Button.styled.js';
+import { T2 } from '../../../styles/TypoGraphy.styled.js';
 import useEmblaCarousel from 'embla-carousel-react';
-import IconArrowPrev from '../../images/BtnArrowPrev.svg';
-import IconArrowNext from '../../images/BtnArrowNext.svg';
+import IconArrowPrev from '../../../assets/icons/BtnArrowPrev.svg';
+import IconArrowNext from '../../../assets/icons/BtnArrowNext.svg';
 import { useEffect, useState, useCallback } from 'react';
 
 const IdolList = ({ idolList, selectedIds, onSelected, onFavorite }) => {

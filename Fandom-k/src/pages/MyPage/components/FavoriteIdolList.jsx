@@ -1,8 +1,8 @@
-import FavoriteListWrap from './FavoriteIdolList.js';
+import FavoriteListWrap from '../../../styles/pages/MyPage/FavoriteIdolList.styled.js';
 import IdolCard from './IdolCard.jsx';
-import { T2 } from '../../styles/TypoGraphy.styled.js';
+import { T2 } from '../../../styles/TypoGraphy.styled.js';
 import useEmblaCarousel from 'embla-carousel-react';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 
 const FavoriteIdolList = ({ favorites, onRemove, idol }) => {
   const [canScrollPrev, setCanScrollPrev] = useState();

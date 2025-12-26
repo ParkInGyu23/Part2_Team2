@@ -1,8 +1,7 @@
-import checkIcon from '../../images/iconCheck.svg';
-import CardWrap from './IdolCard.styled.js';
-import deleteButton from '../../images/iconDelete.svg';
+import CardWrap from '../../../styles/pages/MyPage/IdolCard.styled.js';
+import deleteButton from '../../../assets/icons/IconCheck.svg';
 import IdolImg from './IdolImg.jsx';
-import { T10, T12 } from '../../styles/TypoGraphy.styled.js';
+import { T10, T12 } from '../../../styles/TypoGraphy.styled.js';
 
 const IdolCard = ({ src, isChecked, onSelected, showCloseButton, onRemove, idol }) => {
   return (
