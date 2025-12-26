@@ -14,6 +14,7 @@ import ImgPhone2 from '../images/imgPhone2.png';
 import ImgPhone3 from '../images/imgPhone3.png';
 import Button from '../styles/Button';
 import { LendingWrap, LendingTop, Title, Section, BgLine } from '../styles/pages/Lending/Lending';
+import { removeStorage, clearStorage } from '../utils/LocalStorage';
 
 const MotionT1 = motion(T1);
 const MotionTitle = motion(Title);
@@ -22,8 +23,7 @@ const Lending = () => {
   const navigate = useNavigate();
 
   const handleStartClick = () => {
-    // localStorage 초기화
-    localStorage.clear();
+    clearStorage();
     navigate('/list');
   };
 

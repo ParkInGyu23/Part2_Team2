@@ -24,6 +24,7 @@ import Button from './styles/Button';
 import { Input, InputError, InputWithIcon, RadioButton } from './styles/Input';
 import IconCredit from './images/IconCredit';
 import Header from './pages/include/Header';
+import { LoadingContainer, LoadingSpinner } from './styles/Loading';
 
 function PageStyleGuide() {
   const [selectedRadio, setSelectedRadio] = useState('radio1'); // 라디오 선택 필요 useState
@@ -387,6 +388,20 @@ function PageStyleGuide() {
               error={hasError}
               errorMessage="갖고 있는 크레딧보다 더 많이 후원할 수 없어요"
             />
+          </FlexBox>
+        </div>
+
+        <div id="loading">
+          <h2>LOADING</h2>
+          <Note>
+            * 사용방법 예시 :
+            {'<LoadingContainer><LoadingSpinner />페이지가 로딩 중입니다.</LoadingContainer>'}
+          </Note>
+          <FlexBox>
+            <LoadingContainer>
+              <LoadingSpinner />
+              <p>페이지가 로딩 중입니다.</p>
+            </LoadingContainer>
           </FlexBox>
         </div>
       </DesignWrap>
