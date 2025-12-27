@@ -13,8 +13,10 @@ import {
   InputWrap,
   SuccessIcon,
 } from '../../../../styles/Modal/DonationModal.styled';
+import { InputWithIcon } from '../../../../styles/Input.styled';
 import BaseModal from '../../../../components/BaseModal';
-import creditImg from '../assets/icons/Credit.svg';
+// import creditImg from '../../../../assets/icons/IconCredit.svg';
+import IconCredit from '../../../../assets/images/IconCredit';
 import { useCreditActions, useCreditValue } from '../../../../contexts/CreditContext';
 
 function DonationModal({ isOpen, onClose, donationData }) {
@@ -77,7 +79,16 @@ function DonationModal({ isOpen, onClose, donationData }) {
             </IdolInfo>
           </IdolContainer>
 
-          <InputWrap>
+          <InputWithIcon
+            type="number"
+            value={donateAmount}
+            placeholder="크레딧 입력"
+            onChange={handleChange}
+            error={!!error}
+            errorMessage={error}
+          />
+
+          {/* <InputWrap>
             <DonateInput
               type="number"
               value={donateAmount}
@@ -85,9 +96,9 @@ function DonationModal({ isOpen, onClose, donationData }) {
               placeholder="크레딧 입력"
               $error={!!error}
             />
-            <Credit src={creditImg} />
+            <IconCredit height={19} />
             <ErrorSlot>{error && <ErrorMessage>{error}</ErrorMessage>}</ErrorSlot>
-          </InputWrap>
+          </InputWrap> */}
 
           <DonateButton onClick={handleDonate} disabled={!!error || isDisabled}>
             후원하기
@@ -96,7 +107,8 @@ function DonationModal({ isOpen, onClose, donationData }) {
       )}
       {modalStep === 'success' && (
         <>
-          <SuccessIcon src={creditImg} alt="credit icon" />
+          {/* <SuccessIcon src={creditImg} alt="credit icon" /> */}
+          <IconCredit height={111} shadowL />
           <p>{Number(donateAmount).toLocaleString()} 크레딧 후원이 완료되었습니다.</p>
           <DonateButton onClick={handleClose}>확인</DonateButton>
         </>

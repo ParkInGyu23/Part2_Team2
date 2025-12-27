@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { palette } from './Palette.styled';
 
-import IconCredit from '../images/IconCredit';
+import IconCredit from '../assets/images/IconCredit';
 
 // 라디오박스
 export const RadioButton = ({ children, id, name, disabled, checked, onChange }) => {

@@ -1,5 +1,6 @@
 import { ProgressContainer } from '../../../../styles/pages/List/Donation.styled';
-import IconCredit from '../../../../images/IconCredit';
+// import IconCredit from '../../../../images/IconCredit';
+import IconCredit from '../../../../assets/images/IconCredit';
 import { palette } from '../../../../styles/Palette.styled';
 
 const ProgressBar = ({ data }) => {

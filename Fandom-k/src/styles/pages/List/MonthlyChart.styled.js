@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { palette } from '../../Palette.styled';
 import Button from '../../Button.styled';
 import { device } from '../../Theme.styled';
-import ImgBorder from '../../../pages/MyPage/IdolImg';
+// import ImgBorder from '../../../pages/MyPage/IdolImg';
+import ImgBorder from '../../IdolImg.styled';
 
 export const MonthlyChartContainer = styled.section`
   display: flex;

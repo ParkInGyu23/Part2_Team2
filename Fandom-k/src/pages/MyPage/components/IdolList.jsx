@@ -1,7 +1,7 @@
-import IdolCard from './IdolCard.jsx';
-import IdolListWrap from '../../../styles/pages/MyPage/IdolList.styled.js';
-import Button from '../../../styles/Button.styled.js';
-import { T2 } from '../../../styles/TypoGraphy.styled.js';
+import IdolCard from './IdolCard';
+import IdolListWrap from '../../../styles/pages/MyPage/IdolList.styled';
+import Button from '../../../styles/Button.styled';
+import { T2 } from '../../../styles/TypoGraphy.styled';
 import useEmblaCarousel from 'embla-carousel-react';
 import IconArrowPrev from '../../../assets/icons/BtnArrowPrev.svg';
 import IconArrowNext from '../../../assets/icons/BtnArrowNext.svg';

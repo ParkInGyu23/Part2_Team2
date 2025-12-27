@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import { palette } from '../Palette.styled';
 import profileImg from '../../assets/images/ProfileImg.png';
-import BgLendingTop from '../../images/bgLendingTop.png';
+import BgLendingTop from '../../assets/images/bgLandingTop.png';
 
 export const HeaderWrap = styled.header`
   position: sticky;

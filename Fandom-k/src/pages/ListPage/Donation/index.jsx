@@ -5,8 +5,8 @@ import {
 } from '../../../styles/pages/List/Donation.styled';
 import { T2 } from '../../../styles/TypoGraphy.styled';
 import useEmblaCarousel from 'embla-carousel-react';
-import IconArrowPrev from '../../../images/BtnArrowPrev.svg';
-import IconArrowNext from '../../../images/BtnArrowNext.svg';
+import IconArrowPrev from '../../../assets/icons/BtnArrowPrev.svg';
+import IconArrowNext from '../../../assets/icons/BtnArrowNext.svg';
 import ProfileCard from './components/ProfileCard';
 import { useEffect, useState, useCallback } from 'react';
 import { getDonations } from '../../../API/Donation';

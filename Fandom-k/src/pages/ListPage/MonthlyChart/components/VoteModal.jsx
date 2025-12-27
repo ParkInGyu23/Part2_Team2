@@ -19,8 +19,10 @@ import {
   VoteAmount,
   VoteButton,
 } from '../../../../styles/Modal/VoteModal.styled';
-import CheckImg from '../images/IconCheck.svg';
-import CreditImg from '../assets/icons/Credit.svg';
+import { palette } from '../../../../styles/Palette.styled';
+import CheckImg from '../../../../assets/icons/IconCheck.svg';
+// import CreditImg from '../../../../assets/icons/IconCredit.svg';
+import IconCredit from '../../../../assets/images/IconCredit';
 import { useCreditActions, useCreditValue } from '../../../../contexts/CreditContext';
 
 function VoteModal({ isOpen, onClose, idols }) {
@@ -96,14 +98,16 @@ function VoteModal({ isOpen, onClose, idols }) {
       )}
       {ModalStep === 'success' && (
         <>
-          <ShortageImg src={CreditImg} />
+          {/* <ShortageImg src={CreditImg} /> */}
+          <IconCredit height={111} shadowL />
           <p>투표가 완료되었습니다!</p>
           <VoteButton onClick={handleClose}>확인</VoteButton>
         </>
       )}
       {ModalStep === 'shortage' && (
         <>
-          <ShortageImg src={CreditImg} />
+          {/* <ShortageImg src={CreditImg} /> */}
+          <IconCredit height={111} shadowL />
           <p>
             앗! 투표하기 위한 <Highlight>크레딧</Highlight>이 부족해요
           </p>

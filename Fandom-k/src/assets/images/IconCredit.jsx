@@ -1,9 +1,16 @@
 // Credit 아이콘
 
 import React from 'react';
-import { palette } from '../styles/Palette';
+import { palette } from '../../styles/Palette.styled';
 
-const IconCredit = ({ width, height, color, ...props }) => {
+const IconCredit = ({ width, height, color, shadowS, shadowM, shadowL, style, ...props }) => {
+  const getShadow = () => {
+    if (shadowL) return 'drop-shadow(0 0 52px rgba(255, 170, 170, 1))';
+    if (shadowM) return 'drop-shadow(0 0 10px rgba(255, 170, 170, 1))';
+    if (shadowS) return 'drop-shadow(0 0 6px rgba(255, 170, 170, 1))';
+    return 'none';
+  };
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -11,6 +18,7 @@ const IconCredit = ({ width, height, color, ...props }) => {
       height={height}
       viewBox="0 0 78 112"
       fill={color || palette.white}
+      style={{ filter: getShadow() }}
       {...props}
     >
       <path

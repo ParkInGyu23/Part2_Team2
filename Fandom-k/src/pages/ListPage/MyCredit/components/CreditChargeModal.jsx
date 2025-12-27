@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import BaseModal from '../../../../components/BaseModal.jsx';
+import BaseModal from '../../../../components/BaseModal';
 import {
   ButtonContent,
   ChargeButton,
@@ -8,9 +8,11 @@ import {
   RadioCircle,
   SelectButton,
   SuccessIcon,
-} from '../../../../styles/Modal/CreditChargeModal.styled.js';
-import creditImg from '../assets/icons/Credit.svg';
-import { useCreditActions, useCreditValue } from '../../../../contexts/CreditContext.jsx';
+} from '../../../../styles/Modal/CreditChargeModal.styled';
+import { palette } from '../../../../styles/Palette.styled';
+// import creditImg from '../../../../assets/icons/IconCredit.svg';
+import IconCredit from '../../../../assets/images/IconCredit';
+import { useCreditActions, useCreditValue } from '../../../../contexts/CreditContext';
 
 function CreditChargeModal({ isOpen, onClose }) {
   const credit = useCreditValue();
@@ -58,7 +60,8 @@ function CreditChargeModal({ isOpen, onClose }) {
               }}
             >
               <ButtonContent>
-                <Credit src={creditImg} alt="credit icon" />
+                {/* <Credit src={creditImg} alt="credit icon" /> */}
+                <IconCredit height={16} shadowS />
                 {amount}
               </ButtonContent>
               <RadioCircle $active={selectedAmount === amount} />
@@ -88,14 +91,16 @@ function CreditChargeModal({ isOpen, onClose }) {
             placeholder="직접 입력"
           />
           <ChargeButton disabled={isDisabled} onClick={handleCharge}>
-            <Credit src={creditImg} alt="credit icon" $white $size={13} />
+            {/* <Credit src={creditImg} alt="credit icon" $white $size={13} /> */}
+            <IconCredit height={12} color={palette.white} shadowS />
             충전하기
           </ChargeButton>
         </>
       )}
       {modalStep === 'success' && (
         <>
-          <SuccessIcon src={creditImg} alt="credit icon" />
+          {/* <SuccessIcon src={creditImg} alt="credit icon" /> */}
+          <IconCredit height={111} shadowL />
           <p>{Number(finalChargeAmount).toLocaleString()} 크레딧 충전이 완료되었습니다.</p>
           <ChargeButton onClick={handleClose}>확인</ChargeButton>
         </>

@@ -10,7 +10,7 @@ import {
   MoreButton,
 } from '../../../styles/pages/List/MonthlyChart.styled'; // MoreButton 스타일 추가 필요
 import { T2 } from '../../../styles/TypoGraphy.styled';
-import IconBtnChart from '../../../images/IconBtnChart.png';
+import IconBtnChart from '../../../assets/images/IconBtnChart.png';
 import IdolList from './components/IdolList';
 import { useCharts } from '../../../hooks/UseCharts';
 import VoteModal from './components/VoteModal';

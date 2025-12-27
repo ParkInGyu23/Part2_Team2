@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { palette } from '../../Palette.styled';
 import { device } from '../../Theme.styled';
-import IconCredit from '../../../images/IconCredit';
+// import IconCredit from '../../../images/IconCredit';
+import IconCredit from '../../../assets/images/IconCredit';
 
 export const MyCreditContainer = styled.section`
   display: flex;

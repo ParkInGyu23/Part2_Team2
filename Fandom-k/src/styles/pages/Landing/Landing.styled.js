@@ -3,11 +3,11 @@ import { palette } from '../../Palette.styled';
 import { device } from '../../Theme.styled';
 import { T8 } from '../../TypoGraphy.styled';
 
-import ImgIntro from '../../../images/ImgIntro.png';
-import ImgIntro1 from '../../../images/ImgIntro1.png';
-import ImgIntro2 from '../../../images/ImgIntro2.png';
-import ImgIntro3 from '../../../images/ImgIntro3.png';
-import BgLendingTop from '../../../images/bgLendingTop.png';
+import ImgIntro from '../../../assets/images/ImgIntro.png';
+import ImgIntro1 from '../../../assets/images/ImgIntro1.png';
+import ImgIntro2 from '../../../assets/images/ImgIntro2.png';
+import ImgIntro3 from '../../../assets/images/ImgIntro3.png';
+import BgLendingTop from '../../../assets/images/bgLandingTop.png';
 
 export const LendingWrap = styled.div`
   position: relative;

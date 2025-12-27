@@ -22,7 +22,7 @@ import {
 } from './styles/TypoGraphy.styled';
 import Button from './styles/Button.styled';
 import { Input, InputError, InputWithIcon, RadioButton } from './styles/Input.styled';
-import IconCredit from './images/IconCredit';
+import IconCredit from './assets/images/IconCredit';
 import Header from './pages/include/Header';
 
 function PageStyleGuide() {
