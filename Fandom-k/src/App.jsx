@@ -4,7 +4,7 @@ import GlobalStyle from './styles/GlobalStyle.styled';
 import NotFoundPage from './pages/NotFoundPage';
 import Landing from './pages/Landing';
 import ListPage from './pages/ListPage';
-import mypage from './pages/mypage';
+import Mypage from './pages/Mypage';
 import { CreditProvider } from './contexts/CreditContext';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/list" element={<ListPage />} />
-            <Route path="/MyPage" element={<mypage />} />
+            <Route path="/mypage" element={<Mypage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>
