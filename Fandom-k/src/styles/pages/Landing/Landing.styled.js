@@ -7,7 +7,7 @@ import ImgIntro from '../../../assets/images/ImgIntro.png';
 import ImgIntro1 from '../../../assets/images/ImgIntro1.png';
 import ImgIntro2 from '../../../assets/images/ImgIntro2.png';
 import ImgIntro3 from '../../../assets/images/ImgIntro3.png';
-import BgLendingTop from '../../../assets/images/bgLandingTop.png';
+import BgLendingTop from '../../../assets/images/BgLandingTop.png';
 
 export const LendingWrap = styled.div`
   position: relative;
