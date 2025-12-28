@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   MonthlyChartContainer,
   ChartHeader,
@@ -14,6 +14,7 @@ import IconBtnChart from '../../../assets/images/IconBtnChart.png';
 import IdolList from './components/IdolList';
 import { useCharts } from '../../../hooks/UseCharts';
 import VoteModal from './components/VoteModal';
+import { LoadingContainer, LoadingSpinner } from '../../../styles/Loading.styled';
 
 const TABS_DATA = [
   { id: 'femaleIdol', label: '이달의 여자 아이돌', type: 'female' },
@@ -22,10 +23,25 @@ const TABS_DATA = [
 
 const MonthlyChart = () => {
   const [activeTabId, setActiveTabId] = useState(TABS_DATA[0].id);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const currentTabType = TABS_DATA.find((tab) => tab.id === activeTabId)?.type || 'female';
   const { charts, loadMore, hasMore, loading } = useCharts(currentTabType);
   const [isVoteIdolOpen, setIsVoteIdolOpen] = useState(false);
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
+
+  // 탭이 변경될 때 로딩 상태 초기화
+  useEffect(() => {
+    setIsInitialLoading(true);
+  }, [currentTabType]);
+
+  // 로딩 상태와 데이터에 따라 초기 로딩 상태 업데이트
+  useEffect(() => {
+    if (loading) {
+      setIsInitialLoading(true);
+    } else if (charts.length > 0) {
+      setIsInitialLoading(false);
+    }
+  }, [loading, charts.length]);
 
   return (
     <MonthlyChartContainer>
@@ -56,8 +72,17 @@ const MonthlyChart = () => {
       </TabGroup>
 
       <TabContent>
-        <IdolList idols={charts} isLoading={isLoading} />
-        {hasMore && !loading && <MoreButton onClick={loadMore}>더보기</MoreButton>}
+        {isInitialLoading ? (
+          <LoadingContainer>
+            <LoadingSpinner />
+            <p>이달의 차트 데이터를 불러오는 중입니다.</p>
+          </LoadingContainer>
+        ) : (
+          <>
+            <IdolList idols={charts} />
+            {hasMore && !loading && <MoreButton onClick={loadMore}>더보기</MoreButton>}
+          </>
+        )}
       </TabContent>
     </MonthlyChartContainer>
   );
