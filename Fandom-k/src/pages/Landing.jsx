@@ -9,9 +9,9 @@ import {
 } from '../components/Motion';
 import { T1, T2, T8 } from '../styles/TypoGraphy.styled';
 import images from '../styles/Images.styled';
-import ImgPhone1 from '../images/imgPhone1.png';
-import ImgPhone2 from '../images/imgPhone2.png';
-import ImgPhone3 from '../images/imgPhone3.png';
+import ImgPhone1 from '../images/ImgPhone1.png';
+import ImgPhone2 from '../images/ImgPhone2.png';
+import ImgPhone3 from '../images/ImgPhone3.png';
 import Button from '../styles/Button.styled';
 import {
   LendingWrap,
