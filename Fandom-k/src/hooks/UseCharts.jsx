@@ -46,6 +46,7 @@ export const useCharts = (gender) => {
   );
 
   useEffect(() => {
+    setCharts([]);
     setCursor(null);
     setHasMore(true);
     loadData(null);
