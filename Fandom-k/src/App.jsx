@@ -1,11 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle.styled';
 import NotFoundPage from './pages/NotFoundPage';
-import Landing from './pages/Landing';
-import ListPage from './pages/ListPage';
-import MyPage from './pages/MyPage';
 import Landing from './pages/Landing.jsx';
-import ListPage from './pages/ListPage/index';
+import ListPage from './pages/ListPage/index.jsx';
 import MyPage from './pages/MyPage/index.jsx';
 
 import { CreditProvider } from './contexts/CreditContext';
