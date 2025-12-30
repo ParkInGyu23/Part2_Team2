@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle.styled';
 import NotFoundPage from './pages/NotFoundPage';
-import Landing from './pages/Landing.jsx';
-import ListPage from './pages/ListPage/index';
-import MyPage from './pages/MyPage/index';
+import Landing from './pages/Landing';
+import ListPage from './pages/ListPage';
+import Mypage from './pages/Mypage';
 import { CreditProvider } from './contexts/CreditContext';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/list" element={<ListPage />} />
-            <Route path="/MyPage" element={<MyPage />} />
+            <Route path="/Mypage" element={<Mypage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </BrowserRouter>

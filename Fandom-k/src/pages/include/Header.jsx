@@ -11,9 +11,7 @@ const Header = () => {
           <img src={images.Logo} alt="팬덤케이" />
         </LogoLink>
 
-        <ProfileImg as={Link} to="/MyPage">
-          프로필 이미지
-        </ProfileImg>
+        <ProfileImg to="/Mypage">프로필 이미지</ProfileImg>
       </div>
     </HeaderWrap>
   );
