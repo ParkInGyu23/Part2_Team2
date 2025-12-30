@@ -31,7 +31,7 @@ const FavoriteIdolList = ({ favorites, onRemove, idol }) => {
       emblaApi.off('select', updateButtons);
       emblaApi.off('reInit', updateButtons);
     };
-  }, [emblaApi, idol]); // 리스트 데이터가 바뀔 때마다 실행
+  }, [emblaApi, favorites]); // 리스트 데이터가 바뀔 때마다 실행
 
   return (
     <>
