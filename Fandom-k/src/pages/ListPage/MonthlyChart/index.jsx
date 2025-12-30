@@ -25,9 +25,19 @@ const MonthlyChart = () => {
   const [activeTabId, setActiveTabId] = useState(TABS_DATA[0].id);
   // const [isLoading, setIsLoading] = useState(true);
   const currentTabType = TABS_DATA.find((tab) => tab.id === activeTabId)?.type || 'female';
-  const { charts, loadMore, hasMore, loading } = useCharts(currentTabType);
+  const { charts, setCharts, loadMore, hasMore, loading } = useCharts(currentTabType);
   const [isVoteIdolOpen, setIsVoteIdolOpen] = useState(false);
   const [isInitialLoading, setIsInitialLoading] = useState(true);
+
+  const handleVoteIdol = (idolId) => {
+    setCharts((prevCharts) =>
+      prevCharts.map((idol) =>
+        idol.id === idolId
+          ? { ...idol, totalVotes: Number(idol.totalVotes ?? 0) + 1 }
+          : idol
+      )
+    );
+  }
 
   // 탭이 변경될 때 로딩 상태 초기화
   useEffect(() => {
@@ -57,6 +67,7 @@ const MonthlyChart = () => {
         isOpen={isVoteIdolOpen}
         onClose={() => setIsVoteIdolOpen(false)}
         idols={charts}
+        onVote={handleVoteIdol}
       ></VoteModal>
 
       <TabGroup>
