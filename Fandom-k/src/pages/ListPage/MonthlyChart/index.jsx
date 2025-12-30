@@ -12,7 +12,7 @@ import {
 import { T2 } from '../../../styles/TypoGraphy.styled';
 import IconBtnChart from '../../../assets/images/IconBtnChart.png';
 import IdolList from './components/IdolList';
-import { useCharts } from '../../../hooks/UseCharts';
+import { useCharts } from '../../../hooks/useChart'
 import VoteModal from './components/VoteModal';
 import { LoadingContainer, LoadingSpinner } from '../../../styles/Loading.styled';
 
