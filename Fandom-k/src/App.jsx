@@ -22,6 +22,8 @@ function App() {
             <Route path="/list" element={<ListPage />} />
             <Route path="/Mypage" element={<MyPage />} />
             <Route path="*" element={<NotFoundPage />} />
+
+            {/* 테스트 */}
           </Routes>
         </BrowserRouter>
       </CreditProvider>
