@@ -25,7 +25,7 @@ import CheckImg from '../../../../assets/icons/IconCheck.svg';
 import IconCredit from '../../../../assets/images/IconCredit';
 import { useCreditActions, useCreditValue } from '../../../../contexts/CreditContext';
 
-function VoteModal({ isOpen, onClose, idols }) {
+function VoteModal({ isOpen, onClose, idols, onVote }) {
   const credit = useCreditValue();
   const updateCredit = useCreditActions();
 
@@ -48,6 +48,7 @@ function VoteModal({ isOpen, onClose, idols }) {
     if (credit < 1000) return setModalStep('shortage');
 
     updateCredit(credit - 1000);
+    onVote(selectedIdol);
     setModalStep('success');
   };
 
@@ -70,7 +71,7 @@ function VoteModal({ isOpen, onClose, idols }) {
               <IdolItem key={idol.id} onClick={() => setSelectedIdol(idol.id)}>
                 <RankAndImg>
                   <IdolImgWrap>
-                    <IdolImgProfile src={idol.profilePicture} $active={selectedIdol === idols.id} />
+                    <IdolImgProfile src={idol.profilePicture} $active={selectedIdol === idol.id} />
                     <SelectedOverlay $active={selectedIdol === idol.id} />
                     <CheckIcon src={CheckImg} $active={selectedIdol === idol.id} />
                   </IdolImgWrap>
@@ -81,7 +82,7 @@ function VoteModal({ isOpen, onClose, idols }) {
                   <Name>
                     {idol.group} {idol.name}
                   </Name>
-                  <VoteAmount>{idol.votes}표</VoteAmount>
+                  <VoteAmount>{idol.totalVotes}표</VoteAmount>
                 </IdolInfo>
 
                 <RadioCircle $active={selectedIdol === idol.id} />

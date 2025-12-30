@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import BaseModal from '../../../../components/BaseModal';
 import {
   ButtonContent,
@@ -17,29 +17,36 @@ import { useCreditActions, useCreditValue } from '../../../../contexts/CreditCon
 function CreditChargeModal({ isOpen, onClose }) {
   const credit = useCreditValue();
   const updateCredit = useCreditActions();
-  const [inputAmount, setInputAmount] = useState('');
   const [selectedAmount, setSelectedAmount] = useState(null);
-  const finalChargeAmount = selectedAmount ?? Number(inputAmount);
-  const isDisabled = !finalChargeAmount || finalChargeAmount <= 0;
   const [modalStep, setModalStep] = useState('charge');
+  const [hasInput, setHasInput] = useState(false);
+  const inputRef = useRef(null)
+  const isDisabled = !selectedAmount && !hasInput;
 
   const handleCharge = () => {
-    const amountToCharge = selectedAmount ?? Number(inputAmount);
-    updateCredit(credit + amountToCharge);
+    const inputValue = Number(inputRef.current?.value || 0);
+    const amountToCharge = selectedAmount ?? inputValue;
 
+    if (!amountToCharge || amountToCharge <= 0) return;
+
+    updateCredit(credit + amountToCharge);
     setModalStep('success');
   };
 
   const handleClose = () => {
-    setModalStep('charge');
+    if (inputRef.current) {
+      inputRef.current.value = '';
+    }
+    setHasInput(false);
     setSelectedAmount(null);
-    setInputAmount('');
+    setModalStep('charge');
     onClose();
   };
 
   useEffect(() => {
     if (!isOpen) {
-      setInputAmount('');
+      if (inputRef.current) inputRef.current.value = '';
+      setHasInput(false)
       setSelectedAmount(null);
       setModalStep('charge');
     }
@@ -56,7 +63,10 @@ function CreditChargeModal({ isOpen, onClose }) {
               $active={selectedAmount === amount}
               onClick={() => {
                 setSelectedAmount(amount);
-                setInputAmount('');
+                if (inputRef.current) {
+                  inputRef.current.value = '';
+                }
+                setHasInput(false);
               }}
             >
               <ButtonContent>
@@ -69,25 +79,12 @@ function CreditChargeModal({ isOpen, onClose }) {
           ))}
 
           <ChargeInput
+            ref={inputRef}
             type="number"
             min="1"
             step="1"
-            value={inputAmount}
-            onChange={(e) => {
-              const value = e.target.value;
-              if (value === '') {
-                setInputAmount('');
-                setSelectedAmount(null);
-                return;
-              }
-              const numberValue = Number(value);
-              if (numberValue <= 0) return;
-
-              setInputAmount(value);
-            }}
-            onFocus={() => {
-              setSelectedAmount(null);
-            }}
+            onChange={(e) => setHasInput(Number(e.target.value) > 0)}
+            onFocus={() => { setSelectedAmount(null)}}
             placeholder="직접 입력"
           />
           <ChargeButton disabled={isDisabled} onClick={handleCharge}>
@@ -101,7 +98,7 @@ function CreditChargeModal({ isOpen, onClose }) {
         <>
           {/* <SuccessIcon src={creditImg} alt="credit icon" /> */}
           <IconCredit height={111} shadowL />
-          <p>{Number(finalChargeAmount).toLocaleString()} 크레딧 충전이 완료되었습니다.</p>
+          <p> {(selectedAmount ?? Number(inputRef.current?.value || 0)).toLocaleString()} 크레딧 충전이 완료되었습니다.</p>
           <ChargeButton onClick={handleClose}>확인</ChargeButton>
         </>
       )}

@@ -59,6 +59,7 @@ export const useCharts = (gender) => {
 
   return {
     charts,
+    setCharts,
     loadMore,
     hasMore,
     isLoading,

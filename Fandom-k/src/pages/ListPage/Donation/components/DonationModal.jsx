@@ -19,7 +19,7 @@ import BaseModal from '../../../../components/BaseModal';
 import IconCredit from '../../../../assets/images/IconCredit';
 import { useCreditActions, useCreditValue } from '../../../../contexts/CreditContext';
 
-function DonationModal({ isOpen, onClose, donationData }) {
+function DonationModal({ isOpen, onClose, donationData, onDonateSuccess }) {
   const credit = useCreditValue();
   const updateCredit = useCreditActions();
   const [donateAmount, setDonateAmount] = useState('');
@@ -38,13 +38,19 @@ function DonationModal({ isOpen, onClose, donationData }) {
   if (!isOpen || !donationData) return null;
 
   const handleDonate = () => {
-    if (!donateAmount) {
+    const amount = Number(donateAmount);
+
+    if (!amount || amount <= 0) {
       setError('후원 크레딧을 입력해주세요!');
       return;
     }
-
+    if (amount > credit) {
+      setError('갖고 있는 크레딧보다 더 많이 후원할 수 없습니다!');
+      return;
+    }
+    updateCredit(prev => prev - amount);
+    onDonateSuccess(amount);
     setModalStep('success');
-    updateCredit(credit - Number(donateAmount));
   };
 
   const handleClose = () => {
