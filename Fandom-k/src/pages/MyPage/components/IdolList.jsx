@@ -12,7 +12,7 @@ const IdolList = ({ idolList, selectedIds, onSelected, onFavorite }) => {
   const [canScrollNext, setCanScrollNext] = useState();
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
+    loop: false,
     align: 'center',
     slidesToScroll: 'auto',
   });

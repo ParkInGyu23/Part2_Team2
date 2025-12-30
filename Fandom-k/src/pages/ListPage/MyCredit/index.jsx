@@ -20,7 +20,7 @@ const MyCredit = () => {
         <CreditInfo>
           <CreditTitle>내 크레딧</CreditTitle>
           <CreditPoint>
-            <ReponsiveIconCredit width={16} color={palette.primary} />
+            <ReponsiveIconCredit width={16} />
             {credit.toLocaleString()}
           </CreditPoint>
         </CreditInfo>

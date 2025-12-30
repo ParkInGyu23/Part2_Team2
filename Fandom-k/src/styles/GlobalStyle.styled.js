@@ -58,22 +58,18 @@ const GlobalStyle = createGlobalStyle`
   }
 
   * {
-    scrollbar-width: auto;
-    scrollbar-color: ${palette.secondary} ${palette.white};
+    scrollbar-width: thin;
+    scrollbar-color: ${palette.secondary} transparent;
   }
 
   *::-webkit-scrollbar {
     width: 16px;
   }
 
-  *::-webkit-scrollbar-track {
-    background: ${palette.white};
-  }
-
   *::-webkit-scrollbar-thumb {
     background-color: ${palette.secondary};
     border-radius: 10px;
-    border: 3px solid ${palette.white};
+    border: 3px solid transparent;
   }
 
   html, body {
@@ -108,6 +104,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
+    font-family: 'Pretendard', sans-serif;
+    border: none;
     cursor: pointer;
   }
 

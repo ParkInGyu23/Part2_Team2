@@ -3,9 +3,11 @@ import IdolList from './components/IdolList.jsx';
 import FavoriteIdolList from './components/FavoriteIdolList.jsx';
 import Header from '../include/Header.jsx';
 import { getList } from '../../API/MyPageList.js';
+import { LoadingContainer, LoadingSpinner } from '../../styles/Loading.styled';
 import { getStorage, setStorage } from '../../utils/LocalStorage.js';
 
 const MyPage = () => {
+  const [loading, setLoading] = useState(true);
   const [favorites, setFavorites] = useState(() => getStorage('favorites', [])); // 상단 관심 목록
   const [idolList, setIdolList] = useState(() => getStorage('idolList', [])); // 리스트에 있을 아이돌들
   const [selectedIds, setSelectedIds] = useState([]); // 현재 체크된 ID들
@@ -13,6 +15,7 @@ const MyPage = () => {
   // 초기에 데이터 빈배열일때 API 호출
   const fetchInitialData = async () => {
     try {
+      setLoading(true);
       if (idolList.length === 0 && favorites.length === 0) {
         const result = await getList({ cursor: null, pageSize: 1000 });
         setIdolList(result.list);
@@ -20,6 +23,8 @@ const MyPage = () => {
       }
     } catch (err) {
       console.error('Error loading favorite idols:', err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -68,12 +73,19 @@ const MyPage = () => {
       <Header />
       <FavoriteIdolList favorites={favorites} onRemove={handleMoveToIdolList} />
       <hr />
-      <IdolList
-        idolList={idolList}
-        selectedIds={selectedIds}
-        onSelected={toggleSelect}
-        onFavorite={handleMoveToFavorite}
-      />
+      {loading ? (
+        <LoadingContainer>
+          <LoadingSpinner />
+          <p>아이돌 목록을 불러오는 중입니다...</p>
+        </LoadingContainer>
+      ) : (
+        <IdolList
+          idolList={idolList}
+          selectedIds={selectedIds}
+          onSelected={toggleSelect}
+          onFavorite={handleMoveToFavorite}
+        />
+      )}
     </div>
   );
 };

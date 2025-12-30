@@ -1,5 +1,6 @@
 // Header
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { palette } from '../Palette.styled';
 import profileImg from '../../assets/images/ProfileImg.png';
 import BgLendingTop from '../../assets/images/BgLandingTop.png';
@@ -47,7 +48,7 @@ export const LogoLink = styled.a`
   }
 `;
 
-export const ProfileImg = styled.a`
+export const ProfileImg = styled(Link)`
   grid-column: -2/-3;
   width: 32px;
   height: 32px;

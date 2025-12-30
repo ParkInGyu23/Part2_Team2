@@ -20,7 +20,7 @@ const ProgressBar = ({ data }) => {
     <ProgressContainer>
       <div className="status">
         <span className="amount">
-          <IconCredit width={12} height={12} color={palette.primary} />{' '}
+          <IconCredit width={12} height={12} />
           {data.receivedDonations.toLocaleString()}
         </span>
         <span className="deadline">
