@@ -31,6 +31,7 @@ export const HeaderWrap = styled.header`
     background: url(${BgLendingTop}) no-repeat top left;
     z-index: -1;
     content: '';
+    pointer-events: none; //클릭 이벤트(마우스 반응) 무시
   }
 `;
 

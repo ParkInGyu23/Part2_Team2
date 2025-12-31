@@ -54,11 +54,14 @@ const IdolListWrap = styled.div`
     @media (max-width: 1350px) {
       grid-auto-columns: calc(100% / 7);
     }
+    @media (max-width: 1250px) {
+      grid-auto-columns: calc(100% / 6);
+    }
     @media ${device.tablet} {
       grid-auto-columns: calc(100% / 5);
     }
     @media (max-width: 850px) {
-      grid-auto-columns: calc(100% / 4);
+      grid-auto-columns: calc(100% / 3);
     }
     @media ${device.mobile} {
       grid-auto-columns: calc(100% / 3);

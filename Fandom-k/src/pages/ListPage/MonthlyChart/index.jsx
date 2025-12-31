@@ -12,7 +12,7 @@ import {
 import { T2 } from '../../../styles/TypoGraphy.styled';
 import IconBtnChart from '../../../assets/images/IconBtnChart.png';
 import IdolList from './components/IdolList';
-import { useCharts } from '../../../hooks/UseCharts';
+import { useCharts } from '../../../hooks/useChart'
 import VoteModal from './components/VoteModal';
 import { LoadingContainer, LoadingSpinner } from '../../../styles/Loading.styled';
 
@@ -35,7 +35,9 @@ const MonthlyChart = () => {
         idol.id === updatedIdol.id ? updatedIdol : idol
       )
     );
+    return updatedCharts.sort((a, b) => b.totalVotes - a.totalVotes);
   }
+
 
   // 탭이 변경될 때 로딩 상태 초기화
   useEffect(() => {
