@@ -20,6 +20,7 @@ const ProfileCard = ({ artist }) => {
             receivedDonations: (prev.receivedDonations || 0) + amount,
             }));
     };
+    
   useEffect(() => {
     setLocalArtist(artist);
   }, [artist]);

@@ -29,16 +29,15 @@ const MonthlyChart = () => {
   const [isVoteIdolOpen, setIsVoteIdolOpen] = useState(false);
   const [isInitialLoading, setIsInitialLoading] = useState(true);
 
-  const handleVoteIdol = (idolId) => {
-    setCharts((prevCharts) => {
-      const updatedCharts = prevCharts.map((idol) =>
-        idol.id === idolId
-          ? { ...idol, totalVotes: Number(idol.totalVotes ?? 0) + 1 }
-          : idol
-      );
-      return updatedCharts.sort((a, b) => b.totalVotes - a.totalVotes);
-    });
-  };
+  const handleVoteIdol = (updatedIdol) => {
+    setCharts((prevCharts) =>
+      prevCharts.map((idol) =>
+        idol.id === updatedIdol.id ? updatedIdol : idol
+      )
+    );
+    return updatedCharts.sort((a, b) => b.totalVotes - a.totalVotes);
+  }
+
 
   // 탭이 변경될 때 로딩 상태 초기화
   useEffect(() => {

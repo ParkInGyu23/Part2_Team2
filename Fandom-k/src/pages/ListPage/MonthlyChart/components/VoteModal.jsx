@@ -24,6 +24,7 @@ import CheckImg from '../../../../assets/icons/IconCheck.svg';
 // import CreditImg from '../../../../assets/icons/IconCredit.svg';
 import IconCredit from '../../../../assets/images/IconCredit';
 import { useCreditActions, useCreditValue } from '../../../../contexts/CreditContext';
+import { voteIdol } from '../../../../API/Chart';
 
 function VoteModal({ isOpen, onClose, idols, onVote }) {
   const credit = useCreditValue();
@@ -43,13 +44,18 @@ function VoteModal({ isOpen, onClose, idols, onVote }) {
     },
   };
 
-  const handleVote = () => {
+  const handleVote = async () => {
     if (!selectedIdol) return;
     if (credit < 1000) return setModalStep('shortage');
 
-    updateCredit(credit - 1000);
-    onVote(selectedIdol);
-    setModalStep('success');
+    try {
+      const result = await voteIdol({ idolId: selectedIdol });
+      updateCredit(credit - 1000);
+      onVote(result.idol);
+      setModalStep('success');
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const handleClose = () => {
