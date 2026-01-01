@@ -94,6 +94,10 @@ export const DonateButton = styled.button`
   font-family: Pretendard;
   line-height: 26px;
   letter-spacing: 2%;
+  
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
+  cursor: ${({ disabled }) =>
+    disabled ? 'not-allowed' : 'pointer'};
 `;
 
 export const SuccessIcon = styled.img`

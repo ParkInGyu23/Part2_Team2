@@ -16,3 +16,19 @@ try {
     throw error;
   }
 };
+
+export const donate = async ({donationId, amount}) => {
+  const res = await fetch(`https://fandom-k-api.vercel.app/21-2/donations/${donationId}/contribute`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ amount })
+  });
+  if (!res.ok) {
+    const errorData = await res.json();
+    console.error('서버 에러 상세 : ', errorData);
+    throw new Error('후원 요청에 실패했습니다.');
+  }
+  return await res.json();
+};

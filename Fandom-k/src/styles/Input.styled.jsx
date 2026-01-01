@@ -69,7 +69,7 @@ export const InputWithIcon = ({ width, error, errorMessage, ...props }) => {
   return (
     <IconInput width={width}>
       <div>
-        <Input width="100%" error={hasError} {...props} />
+        <Input width="100%" $error={hasError} {...props} />
         <IconCredit width={14} height={20} />
       </div>
       {hasError && errorMessage && <InputError>{errorMessage}</InputError>}

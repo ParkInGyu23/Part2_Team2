@@ -1,5 +1,5 @@
 import CardWrap from '../../../styles/pages/MyPage/IdolCard.styled.js';
-import deleteButton from '../../../assets/icons/IconCheck.svg';
+import deleteButton from '../../../assets/icons/IconDelete.svg';
 import IdolImg from './IdolImg.jsx';
 import { T10, T12 } from '../../../styles/TypoGraphy.styled.js';
 
